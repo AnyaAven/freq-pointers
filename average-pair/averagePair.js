@@ -1,6 +1,6 @@
-/*
+/**
 Given a sorted array of numbers and targetAvg,
-return a boolean if a pair of nums averages out to be equal to our targetAvg
+return a boolean if a pair of nums averages out to be equal to our targetAvg //FIXME: use nums in both places (top and bottom sentence)
 
 should be O(n)
 Formula:
@@ -18,7 +18,7 @@ function averagePair(nums, targetAvg) {
     if (nums.length === 0) return false; //O(1)
 
     let leftPointer = 0;
-    let rightPointer = 1;
+    let rightPointer = 1; //FIXME: move rightPointer to start at end of array
 
     //While the left is less than or equal to the (array length - 2), loop.
 
