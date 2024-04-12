@@ -18,33 +18,48 @@ function averagePair(nums, targetAvg) {
     if (nums.length === 0) return false; //O(1)
 
     let leftPointer = 0;
-    let rightPointer = 1; //FIXME: move rightPointer to start at end of array
+    let rightPointer = nums.length - 1;
+
+    while (leftPointer < rightPointer) {
+        let pairAvg = (nums[leftPointer] + nums[rightPointer]) / 2;
+
+        if (pairAvg === targetAvg) return true;
+
+        if (pairAvg > targetAvg) {
+            rightPointer--;
+        }
+        else {
+            leftPointer--;
+        }
+    }
+
+    return false
 
     //While the left is less than or equal to the (array length - 2), loop.
 
-    while (leftPointer <= nums.length - 2) {
-        // Check if right > nums.length - 1, if yes, then increment left by 1 and
-        // set right to (left + 1)
-        console.log({ leftPointer, rightPointer });
+    // while (leftPointer <= nums.length - 2) {
+    //     // Check if right > nums.length - 1, if yes, then increment left by 1 and
+    //     // set right to (left + 1)
+    //     console.log({ leftPointer, rightPointer });
 
-        if (rightPointer > nums.length - 1) {
-            leftPointer++;
-            rightPointer = leftPointer + 1;
+    //     if (rightPointer > nums.length - 1) {
+    //         leftPointer++;
+    //         rightPointer = leftPointer + 1;
 
-        } else if ((nums[leftPointer] + nums[rightPointer]) / 2 === targetAvg) {
-            console.log((nums[leftPointer] + nums[rightPointer]) / 2);
-            //Get left val and right val then calculate average
-            //check if it matches the targetAvg, if yes, return true!
+    //     } else if ((nums[leftPointer] + nums[rightPointer]) / 2 === targetAvg) {
+    //         console.log((nums[leftPointer] + nums[rightPointer]) / 2);
+    //         //Get left val and right val then calculate average
+    //         //check if it matches the targetAvg, if yes, return true!
 
-            return true;
+    //         return true;
 
-        }
-        else {
-            // Else increment the right by one
-            rightPointer++;
-        }
+    //     }
+    //     else {
+    //         // Else increment the right by one
+    //         rightPointer++;
+    //     }
 
-    }
+    // }
 
     return false;
 }
