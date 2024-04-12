@@ -30,13 +30,17 @@ function canConstructWord(word, letters) {
 */
 function createFreqCounter(letters){
     //create an empty object for freq counter
+    const freqCounter = {};
 
     // loop through letters
+    for(const char of letters){
     // check if the char exists inside the counter
-    // if yes, increment be one,
-    // if not, set it to 0
+        const currCount = freqCounter[char] || 0;
 
-    // return freq counter obj
+        freqCounter[char] = currCount++;
+    }
+
+    return freqCounter;
 }
 
 export { canConstructWord };
