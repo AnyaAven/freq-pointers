@@ -15,17 +15,32 @@ averagePair([], 4);                  // false
 
 function averagePair(nums, targetAvg) {
     //if nums is empty return false
+    if (nums.length === 0) return false; //O(1)
 
-    // left pointer [0]
-    // right pointer [1]
+    let leftPointer = 0;
+    let rightPointer = 1;
+
     //While the left is less than or equal to the (array length - 2), loop.
 
-    // Check if right > nums.length - 1, if yes, then increment left by 1 and
-    // set right to (left + 1)
+    while (leftPointer <= nums.length - 2) {
+        // Check if right > nums.length - 1, if yes, then increment left by 1 and
+        // set right to (left + 1)
 
-    //Get left val and right val then calculate average
-    //check if it matches the targetAvg, if yes, return true!
-    // Else increment the right by one
+        if (rightPointer > nums.length - 1) {
+            leftPointer++;
+            rightPointer = leftPointer + 1;
+
+        } else if ((nums[leftPointer] + nums[rightPointer]) / 2 === targetAvg) {
+
+            //Get left val and right val then calculate average
+            //check if it matches the targetAvg, if yes, return true!
+
+            return true;
+
+        }
+        // Else increment the right by one
+        rightPointer++;
+    }
 
     return false;
 }
