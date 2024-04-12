@@ -61,7 +61,7 @@ function averagePair(nums, targetAvg) {
 
     // }
 
-    return false;
+    //return false;
 }
 
 export { averagePair };
