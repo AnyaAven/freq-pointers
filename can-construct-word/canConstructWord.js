@@ -21,7 +21,7 @@ function canConstructWord(word, letters) {
     const countOfLetters = createFreqCounter(letters);
 
     //loop through word
-    for (let char of word) {
+    for (let char of word) { //O(n)
         //check to see if the char exists in the freq counter
 
         if (countOfLetters[char] > 0) {
@@ -40,7 +40,7 @@ function canConstructWord(word, letters) {
 
 ["a", "a", "c", "d"] -> {a: 2, c: 1, d: 1}
 */
-function createFreqCounter(letters) {
+function createFreqCounter(letters) { //O(n)
     //create an empty object for freq counter
     const freqCounter = {};
 
